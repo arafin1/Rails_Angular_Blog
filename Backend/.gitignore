@@ -1,0 +1,7 @@
+/vendor
+/tmp
+/log
+Gemfile.lock
+/db/schema.rb
+.idea/*
+
