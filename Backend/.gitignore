@@ -2,6 +2,7 @@
 /tmp
 /log
 Gemfile.lock
+/public
 /db/schema.rb
 .idea/*
 
