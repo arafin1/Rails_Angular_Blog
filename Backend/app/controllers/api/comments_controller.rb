@@ -1,6 +1,9 @@
 class Api::CommentsController < ApplicationController
 respond_to :json
-
+def index
+    comment = Comment.all
+    render json: comment
+  end
   def show
   	respond_with Comment.find(params[:id])
   end
@@ -9,7 +12,7 @@ respond_to :json
   	comment = Comment.new(post_params)
 
   	if comment.save
-  		render json: comment status: 201
+  		render json: comment ,status: 201
   	else 
   		render json: {errors: comment.errors}, status: 422
   	end
@@ -19,7 +22,7 @@ respond_to :json
   	comment = Comment.find(params[:id])
 
   	if comment.update(post_params)
-  		render json: comment status: 200
+  		render json: comment ,status: 200
   	else
   		render json: {errors: comment.errors}, status: 422
   	end

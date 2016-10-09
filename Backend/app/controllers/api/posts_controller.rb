@@ -31,7 +31,7 @@ respond_to :json
   end
 
   def destroy
-  	post = Post.find_by(params[:id])
+  	post = Post.find(params[:id])
   	post.destroy
   	head 204
   end

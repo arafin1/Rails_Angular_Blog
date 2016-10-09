@@ -1,6 +1,12 @@
 class Api::ReplysController < ApplicationController
 respond_to :json
 
+
+ def index
+    reply = Reply.all
+    render json: reply
+  end
+
   def show
   	respond_with Reply.find(params[:id])
 
