@@ -41,7 +41,7 @@ respond_to :json
   private
 
    def post_params
-   	params.require(:reply).permit(:reply)
+   	params.permit(:reply,:comment_id)
    end
 
 end

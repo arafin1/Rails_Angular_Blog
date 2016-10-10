@@ -4,6 +4,7 @@ def index
     comment = Comment.all
     render json: comment
   end
+
   def show
   	respond_with Comment.find(params[:id])
   end
@@ -18,7 +19,7 @@ def index
   	end
   end
 
-  def upate
+  def update
   	comment = Comment.find(params[:id])
 
   	if comment.update(post_params)
@@ -37,7 +38,7 @@ def index
   private
 
    def post_params
-   	params.require(:comment).permit(:comment)
+   	params.permit(:comment,:post_id)
    end
 
 end

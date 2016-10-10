@@ -10,8 +10,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/blog.html'
     };
 
-    
-
     $stateProvider.state(blogState);
     $urlRouterProvider.otherwise('/blog');
 })  
