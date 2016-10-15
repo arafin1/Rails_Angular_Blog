@@ -1,0 +1,25 @@
+
+<h1>Post Details</h1>
+ <h2>Title:{{spost.post.title}} </h2>
+<p>Description:{{spost.post.description}}</p>
+
+
+
+
+<h1>comment</h1>
+<div class="container">
+<div class="col-md-4">
+	<table>
+	<tr ng-repeat="comment in spost.comments">
+	<td>
+	{{comment.comment}}</td>
+	</tr>
+		
+</table>
+</div>
+</div>
+
+<div>
+<input type="comment" class="form-control" ng-model="commentForm.comment" required>
+<button type="text" ng-click="postComment(commentForm)">Comment</button>
+</div>

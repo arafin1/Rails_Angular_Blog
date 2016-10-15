@@ -1,0 +1,33 @@
+<html ng-app="myApp">
+
+<div class="col-md-4">
+  <h1>Post something</h2>
+  <form class="form" >
+  
+    <div class="form-group">
+      <label>title</label>
+      <input type="title" class="form-control"   ng-model="postForm.title" required>
+    </div>
+    <div class="form-group">
+      <label>description</label>
+        <input type="description class="form-control" ng-model="postForm.description" required>
+      </div>
+      <div>
+      <tr>
+       <tr ng-repeat="post in posts"></tr>
+    
+    <td>{{post.title}}</td>
+    <td>{{post.description}}</td>
+    </tr>
+      </div>
+
+  </form>
+
+  <button type="text" class="btn btn-default" ng-click="addPost(postForm)">Post</button>
+</h1>
+  </div>
+  
+  
+ 
+
+  </html>

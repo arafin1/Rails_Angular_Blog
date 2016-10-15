@@ -1,56 +1,37 @@
 <html ng-app="myApp">
 <div>{{ titles }}</div>
-
+<b><a ui-sref="post">Add New</a></b>
 <style>
 table, td  {
   border: 1px solid grey;
   border-collapse: collapse;
-  padding: 5px;
+  padding: 1px;
 }
 </style>
-<button ng-click="get()">Click Me!</button>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-48">
 <table>
-
-  <tr ng-repeat="post in posts">
-
-  <td>
-    <P>{{ post.title }}</P>
-    </td>
-    <td>
-      <p>{{ post.description }}</p>
-    </td>
-    </tr>
+    <thead>
+       <tr> 
+            <th>Id</th>
+            <th>Title</th>
+            <th>Details</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr ng-repeat="post in posts">
+         <td>{{$index+1}}</td>
+           <td>{{post.title}}</td>
+           <td><a ui-sref="singlepost({id:post.id})">Details</a></td>
+       </tr>
+    </tbody>
 </table>
-
-<div class="col-md-4">
-  <h1>Post something</h2>
-  <form class="form" >
-    <div class="form-group">
-      <label>title</label>
-      <input type="title" class="form-control"   ng-model="postForm.title" required>
-    </div>
-    <div class="form-group">
-      <label>description</label>
-        <input type="description class="form-control" ng-model="postForm.description" required>
-      </div>
-      <div>
-        <button type="text" class="btn btn-default" ng-click="addPost(postForm)">Post</button>
-        
-        <p>Title:: {{post.title}}</p>
-        <p>Description: {{post.description}}</p>
-      </div>
-  </form>
-<input type="comment" ng-model="commentForm.comment" placeholder="Comment">
-<input type="post_id" ng-model="commentForm.post_id" placeholder="Post Id">
-  <button type="text" class="btn btn-default" ng-click="postComment(commentForm)">Comment</button> 
-
-
-
-<input type="post_id" ng-model="replyData.post_id" placeholder="Post ID">
-  <input type="reply" ng-model="replyData.reply" placeholder="Reply">
-<input type="comment_id" ng-model="replyData.comment_id" placeholder="CommentID">
-  <button type="text" class="btn btn-default" ng-click="postReply(replyData)">Reply</button> 
 </div>
 </div>
 </div>
+
+
 </html>
