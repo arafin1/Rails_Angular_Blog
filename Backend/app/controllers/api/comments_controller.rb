@@ -1,13 +1,5 @@
 class Api::CommentsController < ApplicationController
 respond_to :json
-def index
-    comment = Comment.all
-    render json: comment
-  end
-
-  def show
-  	respond_with Comment.find(params[:id])
-  end
 
   def create
   	comment = Comment.new(post_params)

@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-respond_to :json
+before_action :set_post, only: [:show,:update,:destroy]
   
   def index
     post = Post.all
@@ -7,7 +7,11 @@ respond_to :json
   end
 
   def show
-  	respond_with Post.find(params[:id])
+  comments = @post.comments
+  replies =[]
+  comments.each {|cmt| replies << cmt.replies}
+    render json: { post: @post, comments: comments, replies: replies}
+
   end
 
   def create
@@ -21,9 +25,9 @@ respond_to :json
   end
 
   def update
-  	post = Post.find(params[:id])
+  	@post
 
-  	if post.update(post_params)
+  	if @post.update(post_params)
   		render json: post , status: 200
   	else
   		render json: {errors: post.errors}, status: 422
@@ -31,12 +35,18 @@ respond_to :json
   end
 
   def destroy
-  	post = Post.find(params[:id])
+  	@post
   	post.destroy
   	head 204
   end
   
+  
+
   private
+
+  def set_post
+      @post = Post.find(params[:id])
+    end
 
    def post_params
    	params.require(:post).permit(:title, :description)
